@@ -6,3 +6,4 @@ read -p "enter a third vslue :" c
 val=$(( ($a+$b)*$c ))
 val1=$(( ($a*$b)+$c ))
 parttime=8
+val2=$(( $c +($a /$b) ))
