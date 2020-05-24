@@ -3,8 +3,10 @@ read -p "enter a first value :" a
 read -p "enter a second value :" b
 read -p "enter a third vslue :" c
 
-val=$(( ($a+$b)*$c ))
-val1=$(( ($a*$b)+$c ))
+declare -A result
+
+result=$(( ($a+$b)*$c ))
+result=$(( ($a*$b)+$c ))
 parttime=8
-val2=$(( $c +($a /$b) ))
-val3=$(( ($a%$b)+$c ))
+result=$(( $c +($a /$b) ))
+result=$(( ($a%$b)+$c ))
