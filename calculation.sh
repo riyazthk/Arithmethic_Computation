@@ -35,3 +35,24 @@ do
    done
 done
 echo ${result[@]}
+
+#descending order
+
+for ((i=0;$i<=$a;i++))
+do
+   va=$(( ${result[i]} ))
+   for ((j=i;$j<=$a;j++))
+   do
+     value=$(( ${result[j]} ))
+        if [[ $va -lt $value ]]
+        then
+           temp=$va
+           va=$(($value))
+           value=$(($temp))
+        fi
+       result[(i)]=$(($va))
+       result[(j)]=$(($value))
+   done
+done
+echo ${result[@]}
+
