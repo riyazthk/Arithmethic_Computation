@@ -16,3 +16,22 @@ do
 echo "$i=>${result[$i]}"
 done
 
+#ascending order
+
+for ((i=0;$i<=$a;i++))
+do
+   va=$(( ${result[i]} ))
+   for ((j=i;$j<=$a;j++))
+   do
+     value=$(( ${result[j]} ))
+        if [[ $va -gt $value ]]
+        then
+           temp=$va
+           va=$(($value))
+           value=$(($temp))
+        fi
+       result[(i)]=$(($va))
+       result[(j)]=$(($value))
+   done
+done
+echo ${result[@]}
