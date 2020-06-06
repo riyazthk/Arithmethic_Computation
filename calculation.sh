@@ -1,4 +1,4 @@
-#! /bin/bash -x
+#! /bin/bash  
 read -p "enter a first value :" a
 read -p "enter a second value :" b
 read -p "enter a third vslue :" c
@@ -18,41 +18,35 @@ done
 
 #ascending order
 
-for ((i=0;$i<=$a;i++))
+for ((i=${#result[@]};$i>0;i--))
 do
-   va=$(( ${result[i]} ))
-   for ((j=i;$j<=$a;j++))
+   for ((j=0;$j<$(($i-1));j++))
    do
-     value=$(( ${result[j]} ))
-        if [[ $va -gt $value ]]
+      if [[  result[j]  -gt result[j+1] ]]
         then
-           temp=$va
-           va=$(($value))
-           value=$(($temp))
+           temp=$((${result[j]}))
+           result[j]=$((${result[j+1]}))
+           result[j+1]=$temp
         fi
-       result[(i)]=$(($va))
-       result[(j)]=$(($value))
    done
 done
 echo ${result[@]}
 
 #descending order
 
-for ((i=0;$i<=$a;i++))
+for ((i=${#result[@]};$i>0;i--))
 do
-   va=$(( ${result[i]} ))
-   for ((j=i;$j<=$a;j++))
+   for ((j=0;$j<$(($i-1));j++))
    do
-     value=$(( ${result[j]} ))
-        if [[ $va -lt $value ]]
+      if [[  result[j]  -lt result[j+1] ]]
         then
-           temp=$va
-           va=$(($value))
-           value=$(($temp))
+           temp=$((${result[j]}))
+           result[j]=$((${result[j+1]}))
+           result[j+1]=$temp
         fi
-       result[(i)]=$(($va))
-       result[(j)]=$(($value))
    done
 done
 echo ${result[@]}
+
+
 
